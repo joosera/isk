@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  postgres:
+    image: 'postgres:9.5'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    env_file:
+      - 'docker-config.env'
+
+  redis:
+    image: 'redis:3.2-alpine'
+    volumes:
+      - 'redis:/data'
+
+  memcached:
+    image: 'memcached:alpine'
+
+  website:
+    depends_on:
+      - 'postgres'
+      - 'redis'
+    build: .
+    ports:
+      - '12765:12765'
+    volumes:
+      - '.:/isk'
+    env_file:
+      - 'docker-config.env'
+
+  proxy:
+    image: 'nginx:alpine'
+    depends_on:
+      - 'website'
+    ports:
+      - '8080:80'
+    volumes:
+      - '.:/isk'
+      - './docker-nginx.conf:/etc/nginx/conf.d/isk_server.conf:ro'
+    
+
+
+volumes:
+  redis:
+  postgres:

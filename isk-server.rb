@@ -21,8 +21,8 @@ Services = [
 	'background_jobs',
 	'rrd_monitoring'
 ]
-RedisOptions = {host: 'localhost', port: 6379}
-MemcachedIP = 'localhost:11211'
+RedisOptions = {host: 'redis', port: 6379}
+MemcachedIP = 'memcached:11211'
 MemcachedOptions = {namespace: 'ISK', compress: true} 
 
 # Check that all the needed external binaries are present
