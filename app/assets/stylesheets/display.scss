@@ -3,6 +3,16 @@
         src: url('/fonts/Franklin_Gothic_Heavy-Regular.ttf');
 }
 
+@font-face {
+	font-family: 'Lato Black';
+	src: font-url('Lato-Black.ttf')
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: font-url('Lato-Regular.ttf')
+}
+
 body {
         overflow: hidden;
         margin: 0px;

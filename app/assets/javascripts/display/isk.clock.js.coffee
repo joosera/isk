@@ -24,7 +24,7 @@ init = ->
 	elem.width=1920
 	elem.height=128
 
-	ctx.font = t_size + " 'CustomFont'"
+	ctx.font = t_size + " 'Lato'"
 	ctx.fillStyle = '#FFF'
 	ctx.strokeStyle = '#000'
 	ctx.lineWidth = 3
