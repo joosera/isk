@@ -64,7 +64,7 @@ server {
 		# We also have websocket connections so need to specify the http version and two headers
 		proxy_http_version 	1.1;
 		proxy_set_header	Upgrade $http_upgrade;
-		proxy_set_header	Connection $connection_upgrade;
+		proxy_set_header	Connection "upgrade";
 		
 		# Store the original request ip in headers
 		proxy_set_header	X-Real-IP  $remote_addr;
@@ -72,7 +72,7 @@ server {
 		
 		# Proxy the request to rails
 		proxy_set_header	Host $http_host;
-		proxy_pass 			http://isk;
+		proxy_pass 		http://isk;
 	}
 
 	# Internal location for x-accel requests
